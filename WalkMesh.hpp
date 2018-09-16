@@ -9,14 +9,13 @@
 struct WalkMesh {
 	//Walk mesh will keep track of triangles, vertices:
 	std::vector< glm::vec3 > vertices;
-	std::vector< glm::uvec3 > triangles; //CCW-oriented
+	std::vector< glm::uvec3 > triangles; //(CCW) counterclockwise-oriented
 
-	//TODO: consider also loading vertex normals for interpolated "up" direction:
-	//std::vector< glm::vec3 > vertex_normals;
+	//vertex normals for interpolated "up" direction:
+	std::vector< glm::vec3 > vertex_normals;
 
 	//This "next vertex" map includes [a,b]->c, [b,c]->a, and [c,a]->b for each triangle, and is useful for checking what's over an edge from a given point:
 	std::unordered_map< glm::uvec2, uint32_t > next_vertex;
-
 
 	//Construct new WalkMesh and build next_vertex structure:
 	WalkMesh(std::vector< glm::vec3 > const &vertices_, std::vector< glm::uvec3 > const &triangles_);
@@ -25,6 +24,10 @@ struct WalkMesh {
 		glm::uvec3 triangle = glm::uvec3(-1U); //indices of current triangle
 		glm::vec3 weights = glm::vec3(std::numeric_limits< float >::quiet_NaN()); //barycentric coordinates for current point
 	};
+
+	//CHANGED
+	float triangleArea(glm::vec3 A, glm::vec3 B, glm::vec3 C) const;
+	glm::vec3 barycentric(glm::vec3 A, glm::vec3 B, glm::vec3 C, glm::vec3 pt) const;
 
 	//used to initialize walking -- finds the closest point on the walk mesh:
 	// (should only need to call this at the start of a level)
@@ -84,4 +87,4 @@ Game::update(float elapsed) {
 	//compute rightward direction from forward and up:
 	player_right = glm::cross(player_forward, player_up);
 
-}
+}*/

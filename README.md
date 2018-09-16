@@ -1,27 +1,33 @@
 # Game Information
+
 (Note: fill in this portion with information about your game.)
 
-Title: (TODO: your game's title)
+Title: Now you hear me, Now you don't
 
-Author: (TODO: your name)
+Author: Suann Chi (suannc)
 
-Design Document: [TODO: name of design document](TODO: link to design document)
+Design Document:[Now you hear me, Now you don't](http://graphics.cs.cmu.edu/courses/15-466-f18/game1-designs/suannc/)
 
 Screen Shot:
 
 ![Screen Shot](screenshot.png)
 
-How To Play:
 
-TODO: describe the controls and (if needed) goals/strategy.
+
+How To Play:
+The game starts with the player waking up in the heart of the dungeon. The player uses arrow keys to move around the map. 
+The monster will growl once every few seconds to assert its dominance. The closer the player is to monster, the louder the growls will be. 
+If the player makes it out of the dungeon without colliding with the monster they win and "you live" will be displayed. 
+If the monster touches the player, they die and "you died" will display instead.
+
 
 Changes From The Design Document:
-
-TODO: what did you need to add/remove/modify from the original design? Why?
+I simplified the layout of the dungeon because I ran out of time. 
+I added a small cube to represent the monster so you can see the monster this time.
+The player can be lucky and the monster may be away from the dungeon for that specified round.
 
 Good / Bad / Ugly Code:
-
-TODO: provide examples of code you wrote from this project that you think is good (elegant, simple, useful), bad (hack-y, brittle, unreadable), and ugly (particularly inelegant). Provide a sentence or two of justification for the examples.
+Writing WalkMesh.cpp is was most challenging part for this homework. I worked on it several days but I still ran out of time to complete its debugging. The logic in WalkMesh.cpp should make sense though. Good code: use of helpers in WalkMesh.cpp 
 
 # Using This Base Code
 
